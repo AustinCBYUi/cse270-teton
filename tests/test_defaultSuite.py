@@ -22,7 +22,7 @@ class TestDefaultSuite():
     self.driver.quit()
   
   def test_smoke(self):
-    self.driver.get("https://austincbyui.github.io/cse270-teton/index.html")
+    self.driver.get("https://austincbyui.github.io/cse270-teton/teton/1.6/index.html")
     self.driver.set_window_size(1200, 800)
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".header-logo img")
     assert len(elements) > 0
@@ -68,5 +68,5 @@ class TestDefaultSuite():
     self.driver.find_element(By.ID, "password").click()
     self.driver.find_element(By.ID, "password").send_keys("testme")
     self.driver.find_element(By.CSS_SELECTOR, ".mysubmit:nth-child(4)").click()
-    assert self.driver.find_element(By.CSS_SELECTOR, ".errorMessage").text == "Invalid username and password."
+    WebDriverWait(self.driver, 30).until(expected_conditions.text_to_be_present_in_element((By.CSS_SELECTOR, ".errorMessage"), "Invalid username and password."))
   
