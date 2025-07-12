@@ -15,7 +15,7 @@ class TestDefaultSuite():
   def setup_method(self, method):
     options = Options()
     options.add_argument("--headless=new")
-    self.driver = webdriver.Firefox(options=options)
+    self.driver = webdriver.Chrome(options=options)
     self.vars = {}
   
   def teardown_method(self, method):
