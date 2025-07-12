@@ -15,14 +15,14 @@ class TestDefaultSuite():
   def setup_method(self, method):
     options = Options()
     options.add_argument("--headless=new")
-    self.driver = webdriver.Chrome(options=options)
+    self.driver = webdriver.Firefox(options=options)
     self.vars = {}
   
   def teardown_method(self, method):
     self.driver.quit()
   
   def test_smoke(self):
-    self.driver.get("https://austincbyui.github.io/cse270-teton/")
+    self.driver.get("http://localhost:5500/teton/1.6/index.html")
     self.driver.set_window_size(1200, 800)
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".header-logo img")
     assert len(elements) > 0
