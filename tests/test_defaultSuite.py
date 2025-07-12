@@ -22,7 +22,7 @@ class TestDefaultSuite():
     self.driver.quit()
   
   def test_smoke(self):
-    self.driver.get("http://localhost:5500/teton/1.6/index.html")
+    self.driver.get("https://austincbyui.github.io/cse270-teton/index.html")
     self.driver.set_window_size(1200, 800)
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".header-logo img")
     assert len(elements) > 0
